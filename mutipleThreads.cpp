@@ -26,10 +26,13 @@ int main() {
     // thr1.join();
     // thr2.join();
     // thr3.join();
-
-    std::vector<std::thread> tasks;
-    for(int i=0;i<3;i++) tasks.push_back(std::thread{incr});
-    for(auto & t:tasks) t.join();
+    std::thread t1(incr);
+    std::thread t2(incr);
+    //std::vector<std::thread> tasks;
+  //  for(int i=0;i<3;i++) tasks.push_back(std::thread{incr});
+   // for(auto & t:tasks) t.join();
+   t1.join();
+   t2.join();
     std::cout<<z<<std::endl;
     return 0;
 }

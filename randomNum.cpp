@@ -1,6 +1,12 @@
 #include<iostream>
 #include<random>
 
+//use thread_local std::mt19937 mt;
+/*
+Each thread will have its own mt19937 random number generator, initialized independently.
+This can improve performance in multithreaded applications where random number generation occurs frequently.
+Each thread will generate its own sequence of random numbers independently from other threads.
+*/
 std::mt19937 mt;
 
 int main() {
