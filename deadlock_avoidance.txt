@@ -1,0 +1,22 @@
+Deadlock Avoidance
+
+1. Use try_lock() with a timeout
+    - Instead of blocking lock()
+    - May result in livelock
+
+2. Use std::lock()
+    - Lock both mutexes in a single operation
+
+3. Use hierarchical ordering
+    - Lock lower-numbered mutexes first
+
+Deadlock Avoidance Guidelines
+1. Avoid waiting for a thread while holding a lock
+    - other thread may need the lock to proceed
+2. Try to avoid waiting for other threads
+    - other thread may be waiting for your thread
+3. Try to avoid nested locks
+    - if your thread already holds a lock, do not acquire another operation
+    - if you need mulitple locks, acquire them in a single operation
+4. Avoid calling functions within a critical section
+    - Unless you are certain the function does not try to block
